@@ -33,6 +33,6 @@
 </div> <br>
 
 <br>
-<p>
-deficiencies - Not working GUI, very little work done overall
-</p>
+<h4>
+Deficiencies - Not working GUI, very little work done overall
+</h4>
