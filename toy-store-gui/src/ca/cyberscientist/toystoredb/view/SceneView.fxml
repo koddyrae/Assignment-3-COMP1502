@@ -13,43 +13,42 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="ca.cyberscientist.toystoredb.controller.SceneController">
+<BorderPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.cyberscientist.toystoredb.controller.SceneController">
    <center>
       <AnchorPane prefHeight="413.0" prefWidth="514.0" BorderPane.alignment="CENTER">
          <children>
             <TabPane prefHeight="414.0" prefWidth="514.0" tabClosingPolicy="UNAVAILABLE">
               <tabs>
-                <Tab text="Home">
+                <Tab fx:id="homeTab" text="Home">
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
                               <Label layoutX="171.0" layoutY="14.0" text="Welcome to Toy Store Company" />
                               <Separator layoutX="-1.0" layoutY="36.0" prefHeight="0.0" prefWidth="514.0" />
                               <Label layoutX="14.0" layoutY="45.0" text="Search Inventory:" />
-                              <RadioButton layoutX="14.0" layoutY="63.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="102.0" text="Serial Number" />
-                              <RadioButton layoutX="14.0" layoutY="81.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="62.0" text="Name" />
-                              <RadioButton layoutX="14.0" layoutY="99.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="54.0" text="Type" />
+                              <RadioButton fx:id="radioSerialNum" layoutX="14.0" layoutY="63.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="102.0" text="Serial Number" />
+                              <RadioButton fx:id="radioName" layoutX="14.0" layoutY="81.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="62.0" text="Name" />
+                              <RadioButton fx:id="radioType" layoutX="14.0" layoutY="99.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="54.0" text="Type" />
                               <Separator layoutX="5.0" layoutY="133.0" prefHeight="2.0" prefWidth="133.0" />
-                              <ListView layoutX="150.0" layoutY="45.0" prefHeight="225.0" prefWidth="350.0" />
-                              <Button layoutX="307.0" layoutY="303.0" mnemonicParsing="false" text="Buy" />
-                              <TextField layoutX="15.0" layoutY="166.0" prefHeight="26.0" prefWidth="122.0" promptText="Serial Number" />
-                              <TextField layoutX="14.0" layoutY="203.0" prefHeight="26.0" prefWidth="123.0" promptText="Name" />
-                              <TextField layoutX="14.0" layoutY="244.0" prefHeight="26.0" prefWidth="122.0" promptText="Type" />
+                              <ListView fx:id="listView" layoutX="150.0" layoutY="45.0" prefHeight="225.0" prefWidth="350.0" />
+                              <Button fx:id="buyButton" layoutX="307.0" layoutY="303.0" mnemonicParsing="false" onAction="#buyButtonHome" text="Buy" />
+                              <TextField fx:id="selectSerialNum" layoutX="15.0" layoutY="166.0" prefHeight="26.0" prefWidth="122.0" promptText="Serial Number" />
+                              <TextField fx:id="selectName" layoutX="14.0" layoutY="203.0" prefHeight="26.0" prefWidth="123.0" promptText="Name" />
+                              <TextField fx:id="selectType" layoutX="14.0" layoutY="244.0" prefHeight="26.0" prefWidth="122.0" promptText="Type" />
                               <Label layoutX="27.0" layoutY="136.0" prefHeight="26.0" prefWidth="102.0" text="Enter a field:" />
-                              <Button layoutX="49.0" layoutY="290.0" mnemonicParsing="false" text="Search" />
-                              <Button layoutX="53.0" layoutY="329.0" mnemonicParsing="false" text="Clear" />
+                              <Button fx:id="searchButton" layoutX="49.0" layoutY="290.0" mnemonicParsing="false" onAction="#searchButtonHome" text="Search" />
+                              <Button fx:id="clearButton" layoutX="53.0" layoutY="329.0" mnemonicParsing="false" onAction="#clearButtonHome" text="Clear" />
                            </children>
                         </AnchorPane>
                   </content>
                 </Tab>
-                <Tab text="Add Toy">
+                <Tab fx:id="addToyTab" text="Add Toy">
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
                               <Label layoutX="14.0" layoutY="24.0" text="Enter New Toy Information:" />
                               <Label layoutX="14.0" layoutY="63.0" text="Category" />
-                              <MenuButton layoutX="131.0" layoutY="59.0" mnemonicParsing="false" text="Type">
+                              <MenuButton fx:id="toyTypeMenu" layoutX="131.0" layoutY="59.0" mnemonicParsing="false" onAction="#typeMenu" text="Type">
                                 <items>
                                   <MenuItem mnemonicParsing="false" text="Figure" />
                                   <MenuItem mnemonicParsing="false" text="Board Games" />
@@ -63,36 +62,36 @@
                               <Label layoutX="14.0" layoutY="207.0" text="Price" />
                               <Label layoutX="13.0" layoutY="235.0" text="Available count" />
                               <Label layoutX="13.0" layoutY="268.0" text="Age appropriate" />
-                              <TextField layoutX="125.0" layoutY="99.0" prefHeight="26.0" prefWidth="123.0" />
-                              <TextField layoutX="125.0" layoutY="135.0" prefHeight="26.0" prefWidth="124.0" />
-                              <TextField layoutX="125.0" layoutY="171.0" prefHeight="26.0" prefWidth="125.0" />
-                              <TextField layoutX="127.0" layoutY="203.0" prefHeight="26.0" prefWidth="122.0" />
-                              <TextField layoutX="127.0" layoutY="240.0" prefHeight="26.0" prefWidth="122.0" />
-                              <TextField layoutX="128.0" layoutY="273.0" prefHeight="26.0" prefWidth="122.0" />
-                              <Button layoutX="125.0" layoutY="328.0" mnemonicParsing="false" text="Save" />
+                              <TextField fx:id="addSerialNum" layoutX="125.0" layoutY="99.0" prefHeight="26.0" prefWidth="123.0" />
+                              <TextField fx:id="addName" layoutX="125.0" layoutY="135.0" prefHeight="26.0" prefWidth="124.0" />
+                              <TextField fx:id="addBrand" layoutX="125.0" layoutY="171.0" prefHeight="26.0" prefWidth="125.0" />
+                              <TextField fx:id="addPrice" layoutX="127.0" layoutY="203.0" prefHeight="26.0" prefWidth="122.0" />
+                              <TextField fx:id="addAvailableCount" layoutX="127.0" layoutY="240.0" prefHeight="26.0" prefWidth="122.0" />
+                              <TextField fx:id="addAgeAppropriate" layoutX="128.0" layoutY="273.0" prefHeight="26.0" prefWidth="122.0" />
+                              <Button fx:id="saveButton" layoutX="125.0" layoutY="328.0" mnemonicParsing="false" onAction="#saveFieldsButton" text="Save" />
                               <Label layoutX="369.0" layoutY="24.0" text="Figure" />
-                              <TextField layoutX="311.0" layoutY="46.0" promptText="Classification" />
-                              <TextField layoutX="311.0" layoutY="99.0" promptText="Type" />
-                              <TextField layoutX="311.0" layoutY="148.0" promptText="Material" />
-                              <TextField layoutX="311.0" layoutY="184.0" promptText="Size" />
-                              <TextField layoutX="311.0" layoutY="240.0" promptText="Minimum # of Players" />
+                              <TextField fx:id="addClassification" layoutX="311.0" layoutY="46.0" promptText="Classification" />
+                              <TextField fx:id="addPuzzleType" layoutX="311.0" layoutY="99.0" promptText="Type" />
+                              <TextField fx:id="addMaterial" layoutX="311.0" layoutY="148.0" promptText="Material" />
+                              <TextField fx:id="addSize" layoutX="311.0" layoutY="184.0" promptText="Size" />
+                              <TextField fx:id="addMinNumPlayers" layoutX="311.0" layoutY="240.0" promptText="Minimum # of Players" />
                               <Label layoutX="369.0" layoutY="76.0" text="Puzzle" />
                               <Label layoutX="372.0" layoutY="130.0" text="Animal" />
                               <Label layoutX="353.0" layoutY="216.0" text="Board Game" />
-                              <TextField layoutX="312.0" layoutY="274.0" promptText="Maximum # of Players" />
-                              <TextField layoutX="312.0" layoutY="309.0" promptText="Designers" />
+                              <TextField fx:id="addMaxNumPlayers" layoutX="312.0" layoutY="274.0" promptText="Maximum # of Players" />
+                              <TextField fx:id="addDesigners" layoutX="312.0" layoutY="309.0" promptText="Designers" />
                               <Separator layoutX="269.0" layoutY="-7.0" orientation="VERTICAL" prefHeight="398.0" prefWidth="14.0" />
                            </children>
                         </AnchorPane>
                   </content>
                 </Tab>
-                  <Tab text="Remove Toy">
+                  <Tab fx:id="removeToyTab" text="Remove Toy">
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
                               <Label layoutX="14.0" layoutY="42.0" text="Enter Toy Serial Number:" />
-                              <TextField layoutX="14.0" layoutY="73.0" promptText="Serial Number" />
-                              <Button layoutX="63.0" layoutY="119.0" mnemonicParsing="false" text="Remove" />
+                              <TextField fx:id="removeSerialNumber" layoutX="14.0" layoutY="73.0" promptText="Serial Number" />
+                              <Button fx:id="removeButton" layoutX="63.0" layoutY="119.0" mnemonicParsing="false" onAction="#removeToyBtn" text="Remove" />
                               <ListView layoutX="173.0" layoutY="11.0" prefHeight="358.0" prefWidth="322.0" />
                            </children>
                         </AnchorPane>
